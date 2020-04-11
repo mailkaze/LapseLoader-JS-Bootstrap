@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lapse Lader</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/favicon.png">
 </head>
+
 <body>
-    
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="img/favicon.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">
+            Lapse Loader
+        </a>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">¿Qué porcentaje llevo de mi carrera? ¿O de los años de colegio? ¿Qué porcentaje del año ha pasado ya? ¡Encuentra aquí las respuestas!</p>
+            <p>Escribe las fechas del periodo a calcular:</p>
+            <form>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Inicial</span>
+                    </div>
+                    <input type="date" value="1984-05-02" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Final</span>
+                    </div>
+                    <input type="date" value="1984-05-02" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Progreso</span>
+                    </div>
+                    <input type="date" value="1984-05-02" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  </div>
+                <button type="submit" class="btn btn-primary">Calcular</button>
+            </form>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
