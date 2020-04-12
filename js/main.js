@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', (e) => {
     const hoy = new Date();
+    console.log(hoy)
+    let dia = '';
+    let mes = '';
     inputProgreso = document.getElementById('fecha-progreso');
-    // inputProgreso.value = hoy.getFullYear() + '-' + hoy.getMonth() + '-' + hoy.getDate();
-    inputProgreso.value = hoy;
-    console.log(hoy.get)
+    hoy.getDate() > 9 ? dia = hoy.getDate() : dia = '' + '0' + hoy.getDate();
+    hoy.getMonth() > 9 ? mes = hoy.getMonth() : mes = '' + '0' + (hoy.getMonth()+1);
+    inputProgreso.value = hoy.getFullYear() + '-' + mes + '-' + dia;
 });
 
 document.getElementsByTagName('button')[0].addEventListener('click', (e) => {
