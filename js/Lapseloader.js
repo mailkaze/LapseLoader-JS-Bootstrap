@@ -27,9 +27,20 @@ class Lapseloader {
     }
 
     calcRestante(fFin, fPro) {
-        const transcurrido = fFin - fPro;
-        const frase = 'Han pasado ' + this.montarFrase(transcurrido);
+        const restante = fFin - fPro;
+        const frase = 'Faltan ' + this.montarFrase(restante);
         return frase;
+    }
+
+    calcDias(fIni, fFin, fPro) {
+        let total = fFin - fIni;
+        let transcurrido = fPro - fIni;
+        let restante = fFin - fPro;
+        total = total / 1000 / 60 / 60 / 24;
+        transcurrido = transcurrido / 1000 / 60 / 60 / 24;
+        restante = restante / 1000 / 60 / 60 / 24;
+
+        return "Han pasado " + transcurrido + " y faltan otros " + restante + ", de un total de " + total + " días.";
     }
 }
 
