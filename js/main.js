@@ -10,8 +10,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   hoy.getMonth() >= 9
   ? (mes = hoy.getMonth() + 1)
   : (mes = "" + "0" + (hoy.getMonth() + 1));
-
-  console.log('intenté meter esto en el campo:', hoy.getFullYear() + "-" + mes + "-" + dia)
   inputProgreso.value = hoy.getFullYear() + "-" + mes + "-" + dia;
 });
 
@@ -53,7 +51,7 @@ function mostrarResultado(porcentaje, transcurrido, restante, dias, fechaInicial
   const titulo = document.createElement("h5");
   titulo.classList.add("card-title");
 	titulo.innerHTML = `${transcurrido}`;
-	console.log(titulo)
+
   const body = document.getElementById("card-body");
   let contenido = document.getElementById("contenido");
   body.insertBefore(titulo, contenido);
@@ -70,13 +68,14 @@ function mostrarResultado(porcentaje, transcurrido, restante, dias, fechaInicial
 	
 	const sliderLabel = document.createElement("p")
 	sliderLabel.innerHTML = `Desplaza el punto para ver un porcentaje y su fecha correspondiente`
-	console.log(sliderLabel)
 
 	const slider = document.createElement("div")
   slider.classList.add("slider")
-	slider.innerHTML = rangeInput
-	body.insertBefore(slider, contenido)
-	body.insertBefore(sliderLabel, contenido)
+  slider.innerHTML = rangeInput
+  slider.appendChild(sliderLabel)
+  const escribe = document.getElementById('escribe')
+  body.insertBefore(slider, escribe)
+	// body.insertBefore(sliderLabel, contenido)
   // pintamos el texto con el resultado
   contenido.innerHTML = restante + "<br>" + dias;
 
