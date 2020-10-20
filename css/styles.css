@@ -25,6 +25,11 @@ body {
   margin-bottom: 10px;
 }
 
+.slider {
+  margin: 10px 0;
+  border: 1px solid black;
+}
+
 #slider {
     width: 100%;
 }

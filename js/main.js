@@ -7,9 +7,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
   let mes = "";
   const inputProgreso = document.getElementById("fecha-progreso");
   hoy.getDate() > 9 ? (dia = hoy.getDate()) : (dia = "" + "0" + hoy.getDate());
-  hoy.getMonth() > 9
-    ? (mes = hoy.getMonth())
-    : (mes = "" + "0" + (hoy.getMonth() + 1));
+  hoy.getMonth() >= 9
+  ? (mes = hoy.getMonth() + 1)
+  : (mes = "" + "0" + (hoy.getMonth() + 1));
+
+  console.log('intenté meter esto en el campo:', hoy.getFullYear() + "-" + mes + "-" + dia)
   inputProgreso.value = hoy.getFullYear() + "-" + mes + "-" + dia;
 });
 
@@ -29,15 +31,9 @@ document.getElementsByTagName("button")[0].addEventListener("click", (e) => {
   const transcurrido = lapLo.calcTranscurrido(fechaInicial, fechaProgreso);
   const restante = lapLo.calcRestante(fechaFinal, fechaProgreso);
   const dias = lapLo.calcDias(fechaInicial, fechaFinal, fechaProgreso);
-//   console.log(porcentaje);
-//   console.log(transcurrido);
-//   console.log(restante);
+
   mostrarResultado(porcentaje, transcurrido, restante, dias, fechaInicial, fechaFinal, fechaProgreso);
 });
-
-function updateSliderMessage(value) {
-    console.log(value)
-}
 
 function mostrarResultado(porcentaje, transcurrido, restante, dias, fechaInicial, fechaFinal, fechaProgreso) {
   // borramos el título, la barra y el slider si ya están en pantalla
@@ -87,8 +83,6 @@ function mostrarResultado(porcentaje, transcurrido, restante, dias, fechaInicial
   const sliderComponent = document.getElementById('slider')
 	const lapLo = new Lapseloader()
   sliderComponent.addEventListener('input', () => {
-		sliderLabel.innerHTML = lapLo.resultadoSlider(fechaInicial, fechaFinal, Date.parse(sliderComponent.value))
-		// TODO: no es tan facil, hay que pillar el min, el max y el value. con ellos hay que mostrar un porcentaje y traducir value a fecha
-	})
+    sliderLabel.innerHTML = lapLo.resultadoSlider(sliderComponent.min, sliderComponent.max, sliderComponent.value)
+  })
 }
-
